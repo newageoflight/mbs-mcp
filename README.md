@@ -12,16 +12,25 @@ An MCP (Model Context Protocol) server that provides access to the Australian Me
 
 ## Installation
 
+### Quick Install
+
+```bash
+git clone https://github.com/stephenwinters81/medicare-aus-mcp.git
+cd medicare-aus-mcp
+npm install
+npm run build
+```
+
 ### For Claude Code
 
-Add to your Claude Code MCP settings:
+Add to your Claude Code MCP settings (`~/.claude/settings.json` or project `.claude/settings.local.json`):
 
 ```json
 {
   "mcpServers": {
     "medicare-aus": {
-      "command": "npx",
-      "args": ["-y", "medicare-aus-mcp"]
+      "command": "node",
+      "args": ["/path/to/medicare-aus-mcp/dist/index.js"]
     }
   }
 }
@@ -35,17 +44,11 @@ Add to your `claude_desktop_config.json`:
 {
   "mcpServers": {
     "medicare-aus": {
-      "command": "npx",
-      "args": ["-y", "medicare-aus-mcp"]
+      "command": "node",
+      "args": ["/path/to/medicare-aus-mcp/dist/index.js"]
     }
   }
 }
-```
-
-### Manual Installation
-
-```bash
-npm install -g medicare-aus-mcp
 ```
 
 ## Available Tools
