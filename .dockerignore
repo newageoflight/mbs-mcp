@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build output (we build inside Docker)
+dist/
+
+# Git
+.git/
+.gitignore
+
+# IDE and editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test files
+*.test.ts
+*.spec.ts
+__tests__/
+coverage/
+
+# Documentation (not needed in container)
+README.md
+CHANGELOG.md
+LICENSE
+
+# NPM
+.npmignore
+.npmrc
+
+# Claude Code
+.claude/
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
