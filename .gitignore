@@ -4,3 +4,14 @@ dist/
 .DS_Store
 .env
 *.tgz
+
+
+.claude
+.clj-kondo
+.cpcache
+.lsp
+.nrepl-port
+.project-version
+shadow-cljs.edn
+shadow-cljs.edn.orig
+target/

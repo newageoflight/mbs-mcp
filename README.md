@@ -2,23 +2,16 @@
 
 An MCP (Model Context Protocol) server that provides access to the Australian Medicare Benefits Schedule (MBS). Query over 6,000 medical billing items with fees, descriptions, and categories directly from Claude or any MCP-compatible AI assistant.
 
-## Features
-
-- **6,000+ MBS Items**: Complete Medicare Benefits Schedule data
-- **Multiple Search Methods**: By item number, description keywords, or category
-- **Fee Information**: Schedule fees, benefits at 100%/85%/75%, derived fees
-- **Category Browsing**: Navigate the MBS structure by category and group
-- **Fee Comparison**: Compare multiple items side-by-side
+NB: requires manual placement of the latest XML file under `/resources`. I haven't figured out a way to automate the download with cURL yet.
 
 ## Installation
 
 ### Quick Install
 
 ```bash
-git clone https://github.com/stephenwinters81/medicare-aus-mcp.git
-cd medicare-aus-mcp
-npm install
-npm run build
+git clone https://github.com/newageoflight/mbs-mcp.git
+cd mbs-mcp
+clojure -T:build uber
 ```
 
 ### For Claude Code
@@ -29,8 +22,12 @@ Add to your Claude Code MCP settings (`~/.claude/settings.json` or project `.cla
 {
   "mcpServers": {
     "medicare-aus": {
-      "command": "node",
-      "args": ["/path/to/medicare-aus-mcp/dist/index.js"]
+      "command": "java",
+      "args": ["-jar", "/path/to/medicare-aus-mcp/target/mbs-mcp.jar"],
+      "env": {
+        "MBS_NREPL_PORT": "7925",
+        "MBS_HOME": "/path/to/medicare-aus-mcp"
+      }
     }
   }
 }
@@ -44,8 +41,12 @@ Add to your `claude_desktop_config.json`:
 {
   "mcpServers": {
     "medicare-aus": {
-      "command": "node",
-      "args": ["/path/to/medicare-aus-mcp/dist/index.js"]
+      "command": "java",
+      "args": ["-jar", "/path/to/medicare-aus-mcp/target/mbs-mcp.jar"],
+      "env": {
+        "MBS_NREPL_PORT": "7925",
+        "MBS_HOME": "/path/to/medicare-aus-mcp"
+      }
     }
   }
 }
